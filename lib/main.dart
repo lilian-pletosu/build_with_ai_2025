@@ -2,12 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:personal_ai_assistant/hive_adapters/question.dart';
 import 'quiz_page.dart';
+//import 'user_session_save.dart';
+//import 'user_session_get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await Hive.initFlutter();
   Hive.registerAdapter(QuestionAdapter());
   await Hive.openBox<Question>('questions');
+  /*
+  Hive.registerAdapter(UserSessionAdapter()); // Register your adapter
+  await Hive.openBox<UserSession>('userSessionBox'); // Open the box
+  */
+    
 
   // Example of adding questions to the box
   var box = Hive.box<Question>('questions');
