@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:personal_ai_assistant/hive_adapters/question.dart';
+<<<<<<< HEAD
 import 'OnboardingPage.dart';
+=======
+import 'quiz_page.dart';
+//import 'user_session_save.dart';
+//import 'user_session_get.dart';
+>>>>>>> 55d5e35c2a50fcb73fa5ed56b7916c7525e66186
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await Hive.initFlutter();
   Hive.registerAdapter(QuestionAdapter());
   await Hive.openBox<Question>('questions');
+  /*
+  Hive.registerAdapter(UserSessionAdapter()); // Register your adapter
+  await Hive.openBox<UserSession>('userSessionBox'); // Open the box
+  */
+    
 
   var box = Hive.box<Question>('questions');
   // box.clear();
