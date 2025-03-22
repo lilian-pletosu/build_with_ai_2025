@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:personal_ai_assistant/hive_adapters/question.dart';
-import 'quiz_page.dart';
+import 'OnboardingPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -9,7 +9,6 @@ void main() async {
   Hive.registerAdapter(QuestionAdapter());
   await Hive.openBox<Question>('questions');
 
-  // Example of adding questions to the box
   var box = Hive.box<Question>('questions');
   // box.clear();
   if (box.isEmpty) {
@@ -26,7 +25,7 @@ void main() async {
     box.add(Question(question: "Ce înseamnă „overfitting” într-un model AI?"));
     box.add(Question(
         question:
-            "Numește un tip de învățare care NU este considerat învățare AI."));
+        "Numește un tip de învățare care NU este considerat învățare AI."));
     box.add(Question(question: "Ce este o rețea neuronală artificială?"));
     box.add(Question(
         question: "Care este diferența dintre AI și Machine Learning?"));
@@ -38,7 +37,7 @@ void main() async {
         Question(question: "Cum funcționează algoritmul Gradient Descent?"));
     box.add(Question(
         question:
-            "Care este scopul unei funcții de activare într-o rețea neuronală?"));
+        "Care este scopul unei funcții de activare într-o rețea neuronală?"));
     box.add(
         Question(question: "Ce este un GAN (Generative Adversarial Network)?"));
     box.add(Question(
@@ -54,8 +53,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'AI Mentor',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: QuizPage(),
-    );
-  }
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: OnboardingPage(),
+);
+}
 }
